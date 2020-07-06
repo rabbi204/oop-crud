@@ -12,12 +12,16 @@
 	{
 		public function addNewStudent($name,$email,$cell,$img)
 		{
-			$data= parent::insert('students',[
+			//photo upload
+			//$this -> fileUpload($img, 'media/img/students/');
 
+
+			//data send
+			$data= parent::insert('students',[
 				'name' => $name,
 				'email' => $email,
 				'cell' => $cell,
-				//'photo' => $img
+				'photo' => $this -> fileUpload($img, 'media/img/students/'),
 
 			]);	
 

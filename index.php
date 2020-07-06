@@ -36,9 +36,9 @@
 			$cell = $_POST['cell'];
 
 			//file manage
-			 $img = $_FILES['photo'];
+			$img = $_FILES['photo'];
 
-			if (empty($name) || empty($email) || empty($cell)) {
+			if ( empty($name) || empty($email) || empty($cell)|| empty($img) ) {
 				$mess = "<p class='alert alert-danger'>All fields are required!! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}
 			elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
