@@ -9,15 +9,50 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 <body>
-	
+	<?php 
+
+
+		/**
+		 * Student form management
+		 */
+		if (isset($_POST['click'])) {
+			//receive values
+			echo $name = $_POST['name'];
+			echo $email = $_POST['email'];
+			echo $cell = $_POST['cell'];
+
+			//file manage
+			 $img = $_FILES['photo'];
+
+			if (empty($name) || empty($email) || empty($cell)) {
+				$mess = "<p class='alert alert-danger'>All fields are required!! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}
+			elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+				$mess = "<p class='alert alert-danger'>Invalid email!! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}
+
+
+
+
+
+		}
+
+
+	 ?>
 	
 
-	<div class="wrap">
-		<a class="btn-primary btn btn-sm" href="data.php">All student</a>
+	<div class="wrap shadow">
 		<div class="card">
-			<div class="card-body shadow">
+			<div class="card-body">
 				<h2>Add Student</h2>
-				<form action="<?php echo $_SERVER['PHP-SELF']; ?>" method="POST" enctype="multipart/form-data">
+				<?php 
+
+					if (isset($mess)) {
+						echo $mess;
+					}
+
+				 ?>
+				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
 						<input name="name" class="form-control" type="text">
@@ -35,7 +70,7 @@
 						<input name="photo" class="form-control" type="file">
 					</div>
 					<div class="form-group">
-						<input name="submit" class="btn btn-primary" type="submit" value="Sign Up">
+						<input  name="click" class="btn btn-primary" type="submit" value="Sign Up">
 					</div>
 				</form>
 			</div>
