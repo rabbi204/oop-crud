@@ -1,3 +1,17 @@
+<?php 
+	
+	require_once "vendor/autoload.php";
+
+
+	//Student class use
+	use App\Controller\Student;
+
+
+	//class instance
+	$student = new Student;
+
+
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,9 +31,9 @@
 		 */
 		if (isset($_POST['click'])) {
 			//receive values
-			echo $name = $_POST['name'];
-			echo $email = $_POST['email'];
-			echo $cell = $_POST['cell'];
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$cell = $_POST['cell'];
 
 			//file manage
 			 $img = $_FILES['photo'];
@@ -29,6 +43,10 @@
 			}
 			elseif (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
 				$mess = "<p class='alert alert-danger'>Invalid email!! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}
+			else{
+
+				$mess = $student -> addNewStudent($name,$email,$cell,$img);
 			}
 
 

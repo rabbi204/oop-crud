@@ -29,6 +29,30 @@
 		/**
 		 * 
 		 */
+		protected function insert($table, array $data)
+		{
+			//Make SQL column from data;
+			$array_key = array_keys($data);
+			$array_col = implode(',',$array_key);
+
+			//Make SQL values from data;
+			$array_val = array_values($data);
+
+			foreach ($array_val as $value) {
+				$form_value[] = "'".$value ."'";
+			}
+
+			$array_values = implode(',',$form_value);
+
+			//data send to table;
+			$sql = "INSERT INTO $table ($array_col) VALUES ($array_values)";
+			$query = $this -> connection() -> query($sql);
+			
+			if ($query) {
+				return true;
+			}
+
+		}
 
 
 
