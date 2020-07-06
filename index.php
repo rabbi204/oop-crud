@@ -17,25 +17,25 @@
 		<div class="card">
 			<div class="card-body shadow">
 				<h2>Add Student</h2>
-				<form action="<?php echo $_SERVER['PHP-SELF']?">
+				<form action="<?php echo $_SERVER['PHP-SELF']; ?>" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						<label for="">Name</label>
-						<input class="form-control" type="text">
+						<input name="name" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Email</label>
-						<input class="form-control" type="text">
+						<input name="email" class="form-control" type="text">
 					</div>
 					<div class="form-group">
 						<label for="">Cell</label>
-						<input class="form-control" type="text">
+						<input name="cell" class="form-control" type="text">
 					</div>
 					<div class="form-group">
-						<label for="">Username</label>
-						<input class="form-control" type="text">
+						<label for="">Photo</label>
+						<input name="photo" class="form-control" type="file">
 					</div>
 					<div class="form-group">
-						<input class="btn btn-primary" type="submit" value="Sign Up">
+						<input name="submit" class="btn btn-primary" type="submit" value="Sign Up">
 					</div>
 				</form>
 			</div>

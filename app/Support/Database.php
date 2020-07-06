@@ -2,6 +2,8 @@
 	
 	namespace App\Support;
 
+	use mysqli;
+
 	abstract class Database 
 	{
 
@@ -22,6 +24,15 @@
 		{
 			return $this -> connection = new mysqli($this -> host,$this -> user,$this -> pass,$this -> db);
 		}
+
+
+		/**
+		 * 
+		 */
+
+
+
+
 
 
 	}
