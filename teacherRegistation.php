@@ -60,10 +60,11 @@
 	
 
 	<div class="wrap">
-		<a class="btn btn-primary btn-sm" href="studentData.php">All Students Data</a>
+		<a class="btn btn-primary btn-sm" href="index.php">Home</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
 		<div class="card shadow">
 			<div class="card-body">
-				<h2>Add Student</h2>
+				<h2>Add Teacher</h2>
 				<?php 
 
 					if (isset($mess)) {
@@ -92,11 +93,6 @@
 						<input  name="click" class="btn btn-primary" type="submit" value="Sign Up">
 					</div>
 				</form>
-			</div>
-			<div class="card-footer">
-				<h1 style="font-size: 20px; font-weight: bold;">For Teacher & Staff Registration:</h1>
-				<a class="btn btn-primary btn-sm font-weight-bold" href="teacherRegistation.php">Teacher Registration</a>
-				<a class="btn btn-primary btn-sm font-weight-bold" href="staffRegistration.php">Staff Registration</a>
 			</div>
 		</div>
 	</div>

@@ -76,6 +76,20 @@
 
 		}
 
+		/**
+		 * Get all data
+		 */
+		
+		protected function all($table, $order_by)
+		{
+			//data Get ;
+			$sql = "SELECT *FROM $table ORDER BY id $order_by";
+			$data = $this -> connection() -> query($sql);
+			
+			if ($data) {
+				return $data;
+			}
+		}
 
 
 
