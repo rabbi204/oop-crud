@@ -9,6 +9,14 @@
 	$student = new Student;
 
 
+	//Data delete
+	if (isset($_GET['delete'])) {
+		$id = $_GET['delete'];
+
+		$mess = $student -> deleteStudent($id);
+	}
+
+
  ?>
 
 <!DOCTYPE html>
@@ -30,6 +38,13 @@
 		<div class="card">
 			<div class="card-body">
 				<h2>All Data</h2>
+				<?php 
+
+					if (isset($mess)) {
+						echo $mess;
+					}
+
+				 ?>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -47,8 +62,9 @@
 
 							$data= $student -> allStudent();
 
+							$i =1;
+
 							while ( $student = $data -> fetch_assoc() ) :
-							$i = 1;
 						 ?>
 
 						<tr>
@@ -60,7 +76,7 @@
 							<td>
 								<a class="btn btn-sm btn-info" href="#">View</a>
 								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $student['id']; ?>">Delete</a>
 							</td>
 						</tr>
 

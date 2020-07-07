@@ -91,6 +91,20 @@
 			}
 		}
 
+		/**
+		 * Delete Data
+		 */
+		protected function delete($table,$id)
+		{
+			//data delete ;
+			$sql = "DELETE FROM $table WHERE id='$id' ";
+			$data = $this -> connection() -> query($sql);
+			
+			if ($data) {
+				return true;
+			}
+		}
+
 
 
 

@@ -29,6 +29,8 @@
 				return"<p class='alert alert-success'>Student added successfully!! <button class='close' data-dismiss='alert'>&times;</button></p>";
 			}
 		}
+
+
 		/**
 		 * Get all value 
 		 */
@@ -39,8 +41,20 @@
 			if ($data ) {
 				return $data;
 			}
+
 			
-			
+		}
+
+		/**
+		 * Delete single student
+		 */
+		public function deleteStudent($id)
+		{
+			$data = $this -> delete('students',$id);
+
+			if ($data) {
+				return "<p class='alert alert-success'>Student Data Deleted Successfully!! <button class='close' data-dismiss='alert'>&times;</button></p>";
+			}
 		}
 
 
