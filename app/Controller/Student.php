@@ -10,7 +10,7 @@
 	 */
 	class Student extends Database
 	{
-		public function addNewStudent($name,$email,$cell,$img)
+		public function addNewStudent($name,$email,$cell,$img,$table_name)
 		{
 			//photo upload
 			//$this -> fileUpload($img, 'media/img/students/');

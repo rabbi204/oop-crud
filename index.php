@@ -34,6 +34,7 @@
 			$name = $_POST['name'];
 			$email = $_POST['email'];
 			$cell = $_POST['cell'];
+			$table_name = $_POST['tname'];
 
 			//file manage
 			$img = $_FILES['photo'];
@@ -46,7 +47,7 @@
 			}
 			else{
 
-				$mess = $student -> addNewStudent($name,$email,$cell,$img);
+				$mess = $student -> addNewStudent($name,$email,$cell,$img,$table_name);
 			}
 
 
@@ -72,6 +73,13 @@
 
 				 ?>
 				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+						 <select class="custom-select" name="tname" id="inputGroupSelect01">
+						    <option selected="students" value="">Students</option>
+						    <option value="teachers">Teachers</option>
+						    <option value="staffs">Staffs</option> 
+						  </select>
+					</div>
 					<div class="form-group">
 						<label for="">Name</label>
 						<input name="name" class="form-control" type="text">
