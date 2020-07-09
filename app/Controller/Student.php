@@ -57,6 +57,17 @@
 			}
 		}
 
+		/**
+		 * Single student data
+		 */
+		public function singleStudent($id)
+		{
+			$data = $this -> find('students', $id);
+
+			return $data -> fetch_assoc();
+
+		}
+
 
 	}
 

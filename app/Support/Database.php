@@ -105,6 +105,21 @@
 			}
 		}
 
+		/**
+		 * Show single data
+		 */
+		protected function find($table, $id)
+		{
+			//data view ;
+			$sql = "SELECT *FROM $table WHERE id='$id' ";
+			$data = $this -> connection() -> query($sql);
+
+			if ($data) {
+				return $data;
+			}
+
+		}
+
 
 
 

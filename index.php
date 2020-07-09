@@ -101,11 +101,6 @@
 					</div>
 				</form>
 			</div>
-			<div class="card-footer">
-				<h1 style="font-size: 20px; font-weight: bold;">For Teacher & Staff Registration:</h1>
-				<a class="btn btn-primary btn-sm font-weight-bold" href="teacherRegistation.php">Teacher Registration</a>
-				<a class="btn btn-primary btn-sm font-weight-bold" href="staffRegistration.php">Staff Registration</a>
-			</div>
 		</div>
 	</div>
 	
