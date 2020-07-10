@@ -3,18 +3,30 @@
 	require_once "vendor/autoload.php";
 
 
-	//Student class use
+	// class use
 	use App\Controller\Student;
+	use App\Controller\Teacher;
+	use App\Controller\Staff;
 
 
 	//class instance
 	$student = new Student;
+	$teacher = new Teacher;
+	$staff = new Staff;
 
 	//Get id
-	if (isset($_GET['id'])) {
-		$id = $_GET['id'];
+	if (isset($_GET['view_stu'])) {
+		$id = $_GET['view_stu'];
 
 		$single_student= $student -> viewStudent($id);
+	}elseif (isset($_GET['view_tea'])) {
+		$id = $_GET['view_tea'];
+
+		$single_student= $teacher -> viewTeacher($id);
+	}if (isset($_GET['view_staf'])) {
+		$id = $_GET['view_staf'];
+
+		$single_student= $staff -> viewStaff($id);
 	}
 
 
@@ -32,6 +44,8 @@
 <body>
 	<div class="wrap">
 		<a class="btn btn-primary btn-sm" href="studentData.php">All Students Data</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card bg-light">
 			<div class="card-header">
 				<h3>Single data of: <?php echo $single_student['name']; ?></h3>

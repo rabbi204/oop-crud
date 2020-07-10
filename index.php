@@ -62,6 +62,8 @@
 
 	<div class="wrap">
 		<a class="btn btn-primary btn-sm" href="studentData.php">All Students Data</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Add Student</h2>
@@ -75,7 +77,7 @@
 				<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST" enctype="multipart/form-data">
 					<div class="form-group">
 						 <select class="custom-select" name="tname" id="inputGroupSelect01">
-						    <option selected="students" value="">Students</option>
+						    <option selected>Students</option>
 						    <option value="teachers">Teachers</option>
 						    <option value="staffs">Staffs</option> 
 						  </select>

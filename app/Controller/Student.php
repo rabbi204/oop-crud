@@ -17,7 +17,7 @@
 
 
 			//data send
-			$data= parent::insert('students',[
+			$data= parent::insert($table_name,[
 				'name' => $name,
 				'email' => $email,
 				'cell' => $cell,
@@ -71,7 +71,7 @@
 		/**
 		 * Update Student data
 		 */
-		public function updateStudent($name, $email, $cell, $photo,$photo_status)
+		public function updateStudent($id,$name, $email, $cell, $photo,$photo_status)
 		{
 			if ( $photo_status == "new") {
 				$photo_name = parent::fileUpload($photo,'media/img/student/');
@@ -79,7 +79,7 @@
 				$photo_name = $photo;
 			}
 
-			$data = parent ::update( 'students', [
+			$data = parent ::update( 'students',$id, [
 
 				'name'	=> $name,
 				'email'	=> $email,

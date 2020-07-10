@@ -35,6 +35,8 @@
 
 	<div class="wrap-table shadow">
 		<a class="btn btn-primary btn-sm" href="index.php">Home</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card">
 			<div class="card-body">
 				<h2>All Data</h2>
@@ -74,7 +76,7 @@
 							<td><?php echo $student['cell']; ?></td>
 							<td><img src="media/img/students/<?php echo $student['photo'];?>" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="single-data-view.php?id=<?php echo $student['id']; ?>">View</a>
+								<a class="btn btn-sm btn-info" href="single-data-view.php?view_stu=<?php echo $student['id']; ?>">View</a>
 								<a class="btn btn-sm btn-warning" href="edit_user.php?edit_stu=<?php echo $student['id']; ?>">Edit</a>
 								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $student['id']; ?>">Delete</a>
 							</td>

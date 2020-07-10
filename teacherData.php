@@ -1,3 +1,26 @@
+<?php require_once "vendor/autoload.php" ?>
+
+<?php 
+
+	//use class
+	use App\Controller\Teacher;
+
+	//instace of class
+	$teacher = new Teacher;
+
+	//delete single teacher
+	if (isset($_GET['delete']))
+	{
+		$id = $_GET['delete'];
+		$mess = $teacher -> deleteTeacher($id );
+	}
+
+
+
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +36,19 @@
 	
 
 	<div class="wrap-table shadow">
+		<a class="btn btn-primary btn-sm" href="index.php">Home</a>
+		<a class="btn btn-primary btn-sm" href="studentData.php">All Students Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card">
 			<div class="card-body">
-				<h2>All Data</h2>
+				<h2>All Teachers Data</h2>
+					<?php 
+
+						if (isset($mess)) {
+							echo $mess;
+						}
+
+					 ?>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -28,68 +61,27 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						
+						<?php 
 
+							$data = $teacher -> allTeacher();
+
+							$i = 1;
+
+							while ($teacher_data = $data -> fetch_assoc()) :
+						 ?>
+						<tr>
+							<td><?php echo $i; $i++; ?></td>
+							<td><?php echo $teacher_data['name']; ?></td>
+							<td><?php echo $teacher_data['email']; ?></td>
+							<td><?php echo $teacher_data['cell']; ?></td>
+							<td><img src="media/img/students/<?php echo $teacher_data['photo']; ?>" alt=""></td>
+							<td>
+								<a class="btn btn-sm btn-info" href="single-data-view.php?view_tea=<?php echo $teacher_data['id']; ?>">View</a>
+								<a class="btn btn-sm btn-warning" href="edit_user.php?edit_tea=<?php echo $teacher_data['id']; ?>">Edit</a>
+								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $teacher_data['id']; ?>">Delete</a>
+							</td>
+						</tr>
+						<?php endwhile; ?>
 					</tbody>
 				</table>
 			</div>

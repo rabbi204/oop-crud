@@ -17,17 +17,17 @@ if (isset($_GET['edit_stu'])) {
 	$user_data = $student -> viewStudent($_GET['edit_stu']);
 
 }
-// elseif (isset($_GET['edit_te'])) {
-// 	//data recive for teacher 
-// 	$triger = "edit_te";
-// 	$user_data = $teacher -> viewTeacher($_GET['edit_te']);
-// 	//data recive for staff
-// } elseif (isset($_GET['edit_stf'])) {
-// 	//data recive for staff
-// 	$triger = "edit_stf";
-// 	$user_data = $staff -> viewStaff($_GET['edit_stf']);
+elseif (isset($_GET['edit_tea'])) {
+	//data recive for teacher 
+	$triger = "edit_tea";
+	$user_data = $teacher -> viewTeacher($_GET['edit_tea']);
+	//data recive for staff
+} elseif (isset($_GET['edit_staf'])) {
+	//data recive for staff
+	$triger = "edit_staf";
+	$user_data = $staff -> viewStaff($_GET['edit_staf']);
 	
-// }
+}
 	
 
 
@@ -49,9 +49,11 @@ if (isset($_GET['edit_stu'])) {
 
 		if (isset($_POST['click'])) {
 			//value recieve
-			echo $name = $_POST['name'];
-			echo $email = $_POST['email'];
-			echo $cell = $_POST['cell'];
+			$id = $user_data['id'];
+			$name = $_POST['name'];
+			$name = $_POST['name'];
+			$email = $_POST['email'];
+			$cell = $_POST['cell'];
 
 			//file data recieve
 			$old_photo = $_POST['old'];
@@ -76,22 +78,22 @@ if (isset($_GET['edit_stu'])) {
 
 					if (isset($_GET['edit_stu'])) {
 
-						$mess = $student -> updateStudent($name, $email, $cell, $photo,$photo_status);
+						$mess = $student -> updateStudent($id,$name, $email, $cell, $photo,$photo_status);
 						header("location:studentData.php");
 
 					}
-					// elseif (isset($_GET['edit_te'])) {
+					elseif (isset($_GET['edit_tea'])) {
 			
-					// 	$mess = $teacher -> updateTeacher($name, $email, $cell, $photo,$photo_status);
-					// 	header("location:all_techer_data.php");
+						$mess = $teacher -> updateTeacher($id,$name, $email, $cell, $photo,$photo_status);
+						header("location:teacherData.php");
 
-					// }
-					// elseif(isset($_GET['edit_stf'])) {
+					}
+					elseif(isset($_GET['edit_staf'])) {
 
-					// 	$mess = $staff -> updateStaff($name, $email, $cell, $photo,$photo_status);
-					// 	header("location:all_data_staff.php");
+						$mess = $staff -> updateStaff($id,$name, $email, $cell, $photo,$photo_status);
+						header("location:staffData.php");
 			
-					// }
+					}
 
 			}
 
