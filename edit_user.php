@@ -107,6 +107,8 @@ elseif (isset($_GET['edit_tea'])) {
 
 	<div class="wrap">
 		<a class="btn btn-primary btn-sm" href="studentData.php">All Students Data</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card shadow">
 			<div class="card-body">
 				<h2>Edit - <?php echo $user_data['name']?></h2>

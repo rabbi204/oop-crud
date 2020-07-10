@@ -1,3 +1,24 @@
+<?php 
+	
+	require_once "vendor/autoload.php";
+
+	//Class use
+	use App\Controller\Staff;
+
+	//class instance
+	$staff = new Staff;
+
+
+	//Data delete
+	if (isset($_GET['delete'])) {
+		$id = $_GET['delete'];
+
+		$mess = $staff -> deleteStaff($id);
+	}
+
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +34,19 @@
 	
 
 	<div class="wrap-table shadow">
+		<a class="btn btn-primary btn-sm" href="index.php">Home</a>
+		<a class="btn btn-primary btn-sm" href="teacherData.php">All Teachers Data</a>
+		<a class="btn btn-primary btn-sm" href="staffData.php">All Staffs Data</a>
 		<div class="card">
 			<div class="card-body">
 				<h2>All Data</h2>
+				<?php 
+
+					if (isset($mess)) {
+						echo $mess;
+					}
+
+				 ?>
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -28,66 +59,30 @@
 						</tr>
 					</thead>
 					<tbody>
+						
+						<?php 
+
+							$data= $staff -> allStaff();
+
+							$i =1;
+
+							while ( $staff_data = $data -> fetch_assoc() ) :
+						 ?>
+
 						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
+							<td><?php echo $i; $i++; ?></td>
+							<td><?php echo $staff_data ['name']; ?></td>
+							<td><?php echo $staff_data ['email']; ?></td>
+							<td><?php echo $staff_data ['cell']; ?></td>
+							<td><img src="media/img/students/<?php echo $staff_data ['photo'];?>" alt=""></td>
 							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
+								<a class="btn btn-sm btn-info" href="single-data-view.php?view_staf=<?php echo $staff_data ['id']; ?>">View</a>
+								<a class="btn btn-sm btn-warning" href="edit_user.php?edit_staf=<?php echo $staff_data ['id']; ?>">Edit</a>
+								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $staff_data ['id']; ?>">Delete</a>
 							</td>
 						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
-						<tr>
-							<td>1</td>
-							<td>Asraful Haque</td>
-							<td>haq@gmail.com</td>
-							<td>01717700811</td>
-							<td><img src="assets/media/img/pp_photo/istockphoto-615279718-612x612.jpg" alt=""></td>
-							<td>
-								<a class="btn btn-sm btn-info" href="#">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
-								<a class="btn btn-sm btn-danger" href="#">Delete</a>
-							</td>
-						</tr>
+
+					<?php endwhile; ?>
 						
 
 					</tbody>
