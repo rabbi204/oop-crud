@@ -119,6 +119,26 @@
 			}
 
 		}
+		/**
+		 * Update single user method
+		 */
+		protected function update($table, array $data)
+		{
+
+			foreach ($data as $key => $value) {
+				$arra[] = $key."="."'".$value."'";
+			}
+		
+			$condiation = implode(',',$arra);
+
+			$sql = "UPDATE $table SET $condiation ";
+			$data = $this -> Connection()  -> query($sql);
+
+			if ($data) {
+				return true;
+			}
+
+		}
 
 
 

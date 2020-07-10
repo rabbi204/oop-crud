@@ -60,7 +60,7 @@
 		/**
 		 * Single student data
 		 */
-		public function singleStudent($id)
+		public function viewStudent($id)
 		{
 			$data = $this -> find('students', $id);
 
@@ -68,6 +68,32 @@
 
 		}
 
+		/**
+		 * Update Student data
+		 */
+		public function updateStudent($name, $email, $cell, $photo,$photo_status)
+		{
+			if ( $photo_status == "new") {
+			$photo_name = parent::fileUpload($photo,'media/img/student/');
+			}else{
+				$photo_name = $photo;
+			}
+
+			$data = parent ::update( 'students', [
+
+				'name'	=> $name,
+				'email'	=> $email,
+				'cell'	=> $cell,
+				'photo'	=> $photo_name,
+
+			]);
+
+			if ($data) {
+
+				return "<p class=\"alert alert-danger\"> update sucessfull data sucess  <button class=\"close\" data-dismiss=\"alert\">&times;</button></p>";
+			}
+
+		}
 
 	}
 

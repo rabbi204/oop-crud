@@ -14,7 +14,7 @@
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 
-		$single_student= $student -> singleStudent($id);
+		$single_student= $student -> viewStudent($id);
 	}
 
 

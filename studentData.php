@@ -75,7 +75,7 @@
 							<td><img src="media/img/students/<?php echo $student['photo'];?>" alt=""></td>
 							<td>
 								<a class="btn btn-sm btn-info" href="single-data-view.php?id=<?php echo $student['id']; ?>">View</a>
-								<a class="btn btn-sm btn-warning" href="#">Edit</a>
+								<a class="btn btn-sm btn-warning" href="edit_user.php?edit_stu=<?php echo $student['id']; ?>">Edit</a>
 								<a class="btn btn-sm btn-danger" href="?delete=<?php echo $student['id']; ?>">Delete</a>
 							</td>
 						</tr>
