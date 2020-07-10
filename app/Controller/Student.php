@@ -74,7 +74,7 @@
 		public function updateStudent($name, $email, $cell, $photo,$photo_status)
 		{
 			if ( $photo_status == "new") {
-			$photo_name = parent::fileUpload($photo,'media/img/student/');
+				$photo_name = parent::fileUpload($photo,'media/img/student/');
 			}else{
 				$photo_name = $photo;
 			}
